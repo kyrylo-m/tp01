@@ -6,6 +6,7 @@
 int main()
 {
     std::cout << "Test GIT!\n";
+    std::cout << "Salut Fatou!";
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
