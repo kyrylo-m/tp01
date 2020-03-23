@@ -60,8 +60,7 @@ int trouverPgcdStein(int a, int b) {
         else
             return trouverPgcdStein(a / 2, b);
     }
-
-    if (a % 2 != 0) {
+    else {
         if (b % 2 == 0)
             return trouverPgcdStein(a, b / 2);
         else {
@@ -80,7 +79,7 @@ void saisieDesFractions(fraction* lesfractions, int nbreFractions) {
     int denom;
 
     for (int i = 0; i < nbreFractions; i++) {
-        cout << endl << "Fraction # " << i + 1 << ": " << endl;
+        cout << endl << "Fraction # " << i + 1 << endl;
         do {
             cout << "Entrez un numerateur superieur a 0 : " << endl;
             cin >> num;
@@ -97,20 +96,21 @@ void saisieDesFractions(fraction* lesfractions, int nbreFractions) {
 
         (lesfractions + i)->numerateur = num;
         (lesfractions + i)->denominateur = denom;
-        cout << "La fraction saisie est:" << (lesfractions + i)->numerateur << "/" << (lesfractions + i)->denominateur << endl;
-
+        cout << "La fraction saisie est: " << (lesfractions + i)->numerateur << "/" << (lesfractions + i)->denominateur << endl;
     }//for
+
 } // saisieDesFractions
 
 void affichageFractons(fraction* lesfractions, int nbreFractions) {
     //Affichage des fractions et leur simplification
-    cout << endl << "Liste des fractions: " << endl;
-    for (int i = 0; i < nbreFractions; i++) {
-        cout << "Fraction # " << i + 1 << ": " << (lesfractions + i)->numerateur << "/" <<
-            (lesfractions + i)->denominateur << "Les fractions simplifiés sont :" << simplifierFraction(fraction& lesfractions);
-
-    }// for
-
+    if (nbreFractions > 0) {
+        cout << endl << "Liste des fractions (comme saisie >>> simplifiee): " << endl;
+        for (int i = 0; i < nbreFractions; i++) {
+            cout << "Fraction # " << i + 1 << ": " << (lesfractions + i)->numerateur << "/" << (lesfractions + i)->denominateur << " >>> ";
+            simplifierFraction(*(lesfractions + i));
+            cout << (lesfractions + i)->numerateur << "/" << (lesfractions + i)->denominateur << endl;
+        }// for
+    } // if
 } // affichageFractions
 
 
