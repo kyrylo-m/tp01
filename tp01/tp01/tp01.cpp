@@ -74,6 +74,46 @@ int trouverPgcdStein(int a, int b) {
 
 } // trouverPgcdStein(a, b)
 
+void saisieDesFractions(fraction* lesfractions, int nbreFractions) {
+    //Remplir le tableau de fractions
+    int num;
+    int denom;
+
+    for (int i = 0; i < nbreFractions; i++) {
+        cout << endl << "Fraction # " << i + 1 << ": " << endl;
+        do {
+            cout << "Entrez un numerateur superieur a 0 : " << endl;
+            cin >> num;
+            if (num <= 0)
+                cout << "Le numerateur doit etre superieur a 0, reessayez! " << endl;
+        } while (num <= 0);
+
+        do {
+            cout << "Entrez un denominateur superieur a 0 : " << endl;
+            cin >> denom;
+            if (denom <= 0)
+                cout << "Le denominateur doit etre superieur a 0, reessayez! " << endl;
+        } while (denom <= 0);
+
+        (lesfractions + i)->numerateur = num;
+        (lesfractions + i)->denominateur = denom;
+        cout << "La fraction saisie est:" << (lesfractions + i)->numerateur << "/" << (lesfractions + i)->denominateur << endl;
+
+    }//for
+} // saisieDesFractions
+
+void affichageFractons(fraction* lesfractions, int nbreFractions) {
+    //Affichage des fractions et leur simplification
+    cout << endl << "Liste des fractions: " << endl;
+    for (int i = 0; i < nbreFractions; i++) {
+        cout << "Fraction # " << i + 1 << ": " << (lesfractions + i)->numerateur << "/" <<
+            (lesfractions + i)->denominateur << "Les fractions simplifiés sont :" << simplifierFraction(fraction& lesfractions);
+
+    }// for
+
+} // affichageFractions
+
+
 
 
 
